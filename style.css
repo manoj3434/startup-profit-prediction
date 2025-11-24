@@ -1,0 +1,204 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, 'Poppins', sans-serif;
+  background: radial-gradient(circle at 10% 10%, #102027 0%, #071526 30%, #021018 100%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: env(safe-area-inset-top, 22px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+}
+
+.container {
+  /* phone-like inner screen */
+  width: min(390px, 92%);
+  max-width: 420px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  backdrop-filter: blur(10px) saturate(120%);
+  padding: 20px 18px;
+  border-radius: 36px;
+  border: 10px solid rgba(255,255,255,0.02);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 8px 18px rgba(0,0,0,0.35) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* small phone outline around the container to resemble a device */
+.container::before {
+  content: '';
+  position: absolute;
+  width: calc(min(390px, 92%) + 30px);
+  height: calc(100% + 30px);
+  border-radius: 46px;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+/* Navbar-specific overrides so the top heading sits at the top and looks distinct */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 6px 0 0 0;
+}
+
+.navbar .container {
+  width: auto;
+  background: transparent;
+  backdrop-filter: none;
+  padding: 0 12px;
+  border-radius: 8px;
+  box-shadow: none;
+  margin-top: 0;
+}
+
+main.container {
+  margin-top: 10px; /* space between navbar and main content */
+}
+
+/* Center the hero block under the navbar */
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 6px;
+  margin: 6px 0 12px 0;
+}
+
+.hero h2 {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.hero p {
+  margin: 0;
+  opacity: 0.95;
+  max-width: 520px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.form-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+input, select {
+  width: 92%;
+  max-width: 360px;
+  padding: 14px 14px;
+  margin: 10px auto;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.95);
+  color: #0b0b0b;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08) inset;
+}
+
+button {
+  width: 92%;
+  max-width: 360px;
+  padding: 14px 16px;
+  border: none;
+  background: linear-gradient(180deg,#0a84ff,#0066d6);
+  color: #fff;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 8px 18px rgba(10,132,255,0.18);
+}
+
+button:active {
+  transform: translateY(1px) scale(.998);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+#result {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.history-box {
+  background: rgba(255,255,255,0.04);
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 20px;
+  width: 92%;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.history-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #ffffff30;
+  font-size: 15px;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-section canvas {
+  display: block;
+  margin: 14px auto;
+  max-width: 100%;
+}
+
+footer {
+  margin-top: 18px;
+  opacity: 0.9;
+}
+
+/* Responsive tweak for very small screens */
+@media (max-width: 420px) {
+  .container {
+    width: calc(100% - 24px);
+    border-radius: 28px;
+    padding: 18px;
+  }
+  .container::before { display: none; }
+  input, select, button { max-width: 100%; }
+}

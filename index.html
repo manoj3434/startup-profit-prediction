@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Startup Profit Prediction</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <h1>Startup Profit Predictor</h1>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <section class="hero">
+      <h2>Estimate your startup's profit</h2>
+      <p>Enter costs and choose state to see the predicted profit using our ML model.</p>
+    </section>
+
+    <section class="form-section">
+      <form id="predict-form">
+        <div class="row">
+          <label>R&D Spend</label>
+          <input type="number" id="rd" min="0" step="0.01" required placeholder="e.g., 160000" />
+        </div>
+
+        <div class="row">
+          <label>Administration Cost</label>
+          <input type="number" id="admin" min="0" step="0.01" required placeholder="e.g., 130000" />
+        </div>
+
+        <div class="row">
+          <label>Marketing Spend</label>
+          <input type="number" id="market" min="0" step="0.01" required placeholder="e.g., 300000" />
+        </div>
+
+        <div class="row">
+          <label>State</label>
+          <select id="state">
+            <option value="New York">New York</option>
+            <option value="California">California</option>
+            <option value="Florida">Florida</option>
+          </select>
+        </div>
+
+        <button type="submit" id="predict-btn">Predict Profit</button>
+
+        <div id="loading" class="hidden">Predicting…</div>
+      </form>
+
+      <div id="result" class="result hidden">
+        <h3>Predicted Profit</h3>
+        <p id="profit-value">—</p>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <h3>Expenses vs Predicted Profit</h3>
+      <canvas id="profitChart" height="120"></canvas>
+    </section>
+
+    <section class="model-info-section">
+      <h3>Model Info</h3>
+      <div id="modelInfo" class="history-box">
+        <p id="modelMeta">Loading model information…</p>
+        <canvas id="importanceChart" height="140"></canvas>
+        <div style="margin-top:10px; display:flex; gap:8px; justify-content:center; align-items:center;">
+          <button id="retrain-btn" style="padding:8px 12px; border-radius:10px;">Retrain Model</button>
+          <div id="retrain-status" style="font-size:13px; opacity:0.95"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Added Prediction History Section -->
+    <section class="history-section">
+      <h3>Prediction History</h3>
+      <div id="history" class="history-box"></div>
+      <button id="export-history-btn">Export History as CSV</button>
+    </section>
+
+    <footer>
+      <p>Repo: <a href="#" id="repoLink">Your GitHub</a> • Built with Flask + sklearn</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

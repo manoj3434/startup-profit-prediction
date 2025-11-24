@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+env/
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.egg-info/
+
+# Distribution / packaging
+build/
+dist/
+.eggs/
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model files / output
+*.pkl
+*.joblib
+model.pkl
+
+# Local config
+.env
+
+# Logs
+*.log
+
+# Ignore python cache folders
+**/__pycache__/
+
+# Optional: ignore data exports
+*.csv
+
+# Keep model_meta.json tracked if you want metadata in repo
+# If you prefer to ignore it, uncomment the line below:
+# model_meta.json
